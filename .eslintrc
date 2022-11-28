@@ -1,0 +1,54 @@
+{
+  "root": true,
+  "noInlineConfig": false,
+  "ignorePatterns": [
+    "*.svg",
+    "*.js"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "env": { "browser": true, "jest": true, "node": true, "es6": true },
+  "settings": {
+    // Apply special parsing for TypeScript files
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
+    },
+    // Append "ts" extensions to Airbnb "import/resolver" setting
+    "import/resolver": {
+      "typescript": {},
+      "node": { "extensions": [".ts", ".tsx", ".d.ts"] }
+    },
+    // Resolve type definition packages
+    "import/external-module-folders": ["node_modules", "node_modules/@types"]
+  },
+  "rules": {
+    "no-plusplus": "off",
+    "import/no-duplicates": "off",
+    "import/prefer-default-export": "off",
+    // https://github.com/airbnb/javascript#modules--import-extensions
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "js": "never", "ts": "never" }
+    ],
+    // Resolve dependencies instead of devDependencies enforcement https://stackoverflow.com/a/44939592 https://medium.com/defmethod-works/sharable-eslint-config-b96af3b93960
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md#how-to-use
+    "no-use-before-define": "off",
+    // https://stackoverflow.com/questions/63818415/react-was-used-before-it-was-defined/64024916#64024916
+    "@typescript-eslint/no-use-before-define": ["error"],
+    // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    // TEMP https://stackoverflow.com/a/60868462/18318549
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

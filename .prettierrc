@@ -1,0 +1,30 @@
+{
+  "singleQuote": true,
+  "trailingComma": "none",
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "package.json",
+      "options": {
+        "tabWidth": 2,
+        "useTabs": false,
+        "printWidth": 512
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "tabWidth": 4,
+        "useTabs": false
+      }
+    }
+  ]
+}
