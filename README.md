@@ -6,9 +6,7 @@ npm install
 ```
 
 ## config
-```
-Add RDS instance id in `config.ts`.
-```
+Set `InstanceId` in `config.ts`
 
 ## deploy
 ```
